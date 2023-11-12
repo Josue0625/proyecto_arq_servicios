@@ -1,17 +1,22 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../auth.service'; 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from '../../../interceptor/auth.interceptor';
 
 @Component({
   selector: 'app-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.scss'
+  styleUrl: './form.component.scss',
+  providers: [AuthService]
+
 })
 export class FormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private fb: FormBuilder,private renderer: Renderer2, private el: ElementRef,  private ser : AuthService ) {}
 
   themes = [
     {
@@ -72,7 +77,40 @@ export class FormComponent implements OnInit {
   //Formulario reactivo
 
   form = this.fb.group({
-    username: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email ]],
     password: ['', [Validators.required]]
   })
+
+  obtener(){
+    this.ser.getUsuario().subscribe(res=>{
+      console.log("Ta bien");
+      console.log(res);
+    },
+    (err)=>{
+      console.log("error");
+      console.log(err);
+    })
+  }  
+  /* async obtener() {
+    try {
+      const res = await this.ser.getUsuario().toPromise();
+      console.log("Ta bien");
+      console.log(res);
+    } catch (err) {
+      console.log("error");
+      console.log(err);
+    }
+  } */
+
+  submit(){
+    this.ser.getToken(this.form.value).subscribe(
+      (res:any)=>{
+      localStorage.setItem('access_token', res.access_token);
+    }, 
+    err => {
+      console.log(err)
+    }
+    )
+  } 
+
 }

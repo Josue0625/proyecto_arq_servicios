@@ -4,14 +4,16 @@
       <div ngClass="form-container">
         <img src="https://drive.google.com/uc?export=view&id=1bKgdKUQ2Uhx6rjY7LNTuBjLfZhJxKVSq" alt="illustration" ngClass="illustration" />
         <h1 ngClass="opacity">LOGIN</h1>
-        <form [formGroup]="form">
-          <input type="text" name="username" id="username" autocomplete="off" placeholder="USERNAME" formControlName="username"/>
-          <span *ngIf="form.get('username')?.errors?.['required']" ngClass="error-username">Username
+        <form [formGroup]="form" (submit)="submit()">
+          <input type="text" name="email" id="email" autocomplete="off" placeholder="EMAIL" formControlName="email"/>
+          <span *ngIf="form.get('email')?.errors?.['required']" ngClass="error-email">Email
             requerido</span>
+          <span *ngIf="form.get('email')?.errors?.['email']" ngClass="error-email">Email no
+            valido</span>
           <input type="password" name="password" id="password" autocomplete="off" placeholder="PASSWORD" formControlName="password"/>
           <span *ngIf="form.get('password')?.errors?.['required']" ngClass="error">Password
             requerida</span>
-          <button ngClass="opacity">SUBMIT</button>
+          <button ngClass="opacity" [disabled]="form.invalid" (click)="obtener()">SUBMIT</button>
         </form>
         <div ngClass="register-forget opacity">
           <a href="">REGISTER</a>
