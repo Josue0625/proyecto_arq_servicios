@@ -1,0 +1,24 @@
+<section ngClass="container">
+    <div ngClass="login-container">
+      <div ngClass="circle circle-one"></div>
+      <div ngClass="form-container">
+        <img src="https://drive.google.com/uc?export=view&id=1bKgdKUQ2Uhx6rjY7LNTuBjLfZhJxKVSq" alt="illustration" ngClass="illustration" />
+        <h1 ngClass="opacity">LOGIN</h1>
+        <form [formGroup]="form">
+          <input type="text" name="username" id="username" autocomplete="off" placeholder="USERNAME" formControlName="username"/>
+          <span *ngIf="form.get('username')?.errors?.['required']" ngClass="error-username">Username
+            requerido</span>
+          <input type="password" name="password" id="password" autocomplete="off" placeholder="PASSWORD" formControlName="password"/>
+          <span *ngIf="form.get('password')?.errors?.['required']" ngClass="error">Password
+            requerida</span>
+          <button ngClass="opacity">SUBMIT</button>
+        </form>
+        <div ngClass="register-forget opacity">
+          <a href="">REGISTER</a>
+          <a href="">FORGOT PASSWORD</a>
+        </div>
+      </div>
+      <div ngClass="circle circle-two"></div>
+    </div>
+    <div class="theme-btn-container"></div>
+</section>
