@@ -2,8 +2,6 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service'; 
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptor } from '../../../interceptor/auth.interceptor';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +9,6 @@ import { AuthInterceptor } from '../../../interceptor/auth.interceptor';
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
-  providers: [AuthService]
 
 })
 export class FormComponent implements OnInit {
