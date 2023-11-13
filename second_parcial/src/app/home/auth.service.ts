@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   baseUrl = 'https://api.escuelajs.co/api/v1/auth';
 
@@ -16,6 +17,10 @@ export class AuthService {
   getUsuario(){
     return this.http.get(`${this.baseUrl}/profile`, {
     });
+  }
+  cerrarSesion(): void {
+    localStorage.removeItem("access_token");
+    this.router.navigate(['/home']);
   }
 
 }
