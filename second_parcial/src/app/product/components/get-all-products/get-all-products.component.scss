@@ -2,15 +2,20 @@ a {
     text-decoration: none;
 }
 
-.container-headboard, .container {
-    max-width: 96%;
+.container {
+  max-width: 80rem;
+  padding-inline: 1rem;
+  margin-inline: auto;
+  border-radius: 10px;
+}
+
+.container-headboard {
+    max-width: 80rem;
     padding-inline: 1rem;
     margin-inline: auto;
     border-radius: 10px;
     background-color: #231F20;
-}
-
-
+  }
 
 .card-headboard {
     display: grid;
@@ -182,4 +187,10 @@ a {
     color: #231F20;
   }
 
+  // .card-cta-icon {  icono
+  //   transition: translate 250ms;
+  // }
+  // .card-cta:is(:hover, :focus) .card-cta-icon {
+  //   translate: 3px 0;
+  // }
 }

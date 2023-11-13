@@ -1,1 +1,62 @@
-<p>product works!</p>
+<!-- <p>producto works!</p>
+<div ngClass="flex">
+    <div ngClass="rojo"><app-crear-producto></app-crear-producto></div>
+    <div ngClass="azul"><app-consultar-producto></app-consultar-producto></div>
+</div> -->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<ng-container *ngIf="elementos.length > 0; else vacio"> </ng-container>
+    <div ngClass="container-headboard">
+        <div ngClass="card-headboard">
+            <div>Id</div>
+            <div>Información Producto</div>
+            <div>Acciones</div>
+        </div>
+    </div>
+    <app-get-all-products *ngFor="let p of elementos">
+        <div ngClass="container" elements>
+            <article ngClass="card">
+                <span ng class="card-number">{{p.id}}</span>
+                <div ngClass="card-block">
+                    <h2 ngClass="card-title">{{p.title}}</h2>
+                    <p ngClass="card-description">{{p.description}}</p>
+                    <p ngClass="card-price">${{p.price}}</p>
+                </div>
+                <figure ngClass="card-image-wrapper">
+                    <img [src]="p.images[0]" [alt]="p.title" width="300" height="300">
+                </figure>
+                <div ngClass="card-cta">
+                    <a ngClass="card-btn">
+                        <mat-icon>visibility</mat-icon>
+                    </a>
+                    <a ngClass="card-btn">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a ngClass="card-btn">
+                        <mat-icon>delete_forever</mat-icon>
+                    </a>
+                </div>
+            </article>
+        </div>
+        <!-- <div imagen>
+            <img [ngSrc]="p.images[0]" width="500" height="500">
+        </div>
+        <div titulo>
+            <ul>
+               <li>{{p.title}}</li> 
+            </ul>
+            
+        </div>
+        <div price>
+            <ul>
+                <li>
+                    {{p.price}}
+                </li>
+            </ul>
+        </div> -->
+    </app-get-all-products>
+<ng-template #vacio>
+    <h1></h1>
+</ng-template>
+

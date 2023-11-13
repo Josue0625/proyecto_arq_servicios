@@ -1,1 +1,20 @@
-<div ngClass="loader {{la$ | async }}">Cargando</div>
+<div ngClass="loader {{la$ | async }}">
+    <div ngClass="container">
+        <div id="app-cover">
+            <div ngClass="square">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div id="ghost">
+              <div id="eyes">
+                <div ngClass="eye"></div>
+                <div ngClass="eye"></div>
+              </div>
+              <div id="mouth"></div>
+              <div id="legs"></div>
+            </div>
+          </div>
+    </div>
+</div>
