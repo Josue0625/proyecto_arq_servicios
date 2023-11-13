@@ -13,7 +13,7 @@
           <input type="password" name="password" id="password" autocomplete="off" placeholder="PASSWORD" formControlName="password"/>
           <span *ngIf="form.get('password')?.errors?.['required']" ngClass="error">Password
             requerida</span>
-          <button ngClass="opacity" [disabled]="form.invalid" (click)="obtener()">SUBMIT</button>
+          <button ngClass="opacity" [disabled]="form.invalid">SUBMIT</button>
         </form>
         <div ngClass="register-forget opacity">
           <a href="">REGISTER</a>
