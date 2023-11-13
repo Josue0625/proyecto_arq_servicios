@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service'; 
+import { Router } from 'express';
 
 @Component({
   selector: 'app-form',
@@ -80,6 +81,7 @@ export class FormComponent implements OnInit {
 
   obtener(){
     this.ser.getUsuario().subscribe(res=>{
+
       console.log("Ta bien");
       console.log(res);
     },
@@ -109,5 +111,7 @@ export class FormComponent implements OnInit {
     }
     )
   } 
+
+  
 
 }
