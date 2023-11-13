@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css");
+@import url("https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css");
+
+.mat-mdc-snack-bar-container {
+  &.green-snackbar {
+    --mdc-snackbar-container-color: green;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+
 body {
     margin: 0;
     box-sizing: border-box;

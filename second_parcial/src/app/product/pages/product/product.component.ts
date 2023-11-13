@@ -4,21 +4,33 @@ import { GetAllProductsComponent } from '../../components/get-all-products/get-a
 import { ProductServiceService } from '../../product-service.service';
 import { AuthService } from '../../../home/auth.service';
 import {MatIconModule} from '@angular/material/icon'
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-product',
   standalone: true,
   imports: [CommonModule, GetAllProductsComponent, MatIconModule],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  styleUrl: './product.component.scss',
 })
 export class ProductComponent {
 
-  constructor(private ser: AuthService, private productService: ProductServiceService){}
+  constructor(private ser: AuthService, private productService: ProductServiceService, private snackBar: MatSnackBar){}
 
   ngOnInit(){
     // this.obtener();
     this.get_all_products();
+    this.showAlertLogin();
+  }
+
+  showAlertLogin(){
+    this.snackBar.open("Login Successful", "👍", {
+      duration: 3000,
+      horizontalPosition: "end",
+      verticalPosition: "top",
+      panelClass: ['green-snackbar']
+     });
   }
 
   // obtener(){
