@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service'; 
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +14,7 @@ import { Router } from 'express';
 })
 export class FormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private renderer: Renderer2, private el: ElementRef,  private ser : AuthService ) {}
+  constructor(private router: Router, private fb: FormBuilder,private renderer: Renderer2, private el: ElementRef,  private ser : AuthService ) {}
 
   themes = [
     {
@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.setTheme(this.themes[0]);
+    this.setTheme(this.themes[3]);
     this.displayThemeButtons();
   }
 
@@ -79,17 +79,7 @@ export class FormComponent implements OnInit {
     password: ['', [Validators.required]]
   })
 
-  obtener(){
-    this.ser.getUsuario().subscribe(res=>{
-
-      console.log("Ta bien");
-      console.log(res);
-    },
-    (err)=>{
-      console.log("error");
-      console.log(err);
-    })
-  }  
+   
   /* async obtener() {
     try {
       const res = await this.ser.getUsuario().toPromise();
@@ -101,15 +91,18 @@ export class FormComponent implements OnInit {
     }
   } */
 
-  submit(){
-    this.ser.getToken(this.form.value).subscribe(
+  async submit(){
+    await this.ser.getToken(this.form.value).subscribe(
       (res:any)=>{
       localStorage.setItem('access_token', res.access_token);
+      this.router.navigate(['/product']);
     }, 
     err => {
       console.log(err)
     }
     )
+    this.form.reset();
+
   } 
 
   
