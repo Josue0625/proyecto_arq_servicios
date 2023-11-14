@@ -1,6 +1,6 @@
 <mat-dialog-actions>
     <h2>Detalle del producto</h2>
-    <button ngClass="btn-dialog" mat-button [mat-dialog-close]="true" cdkFocusInitial>X</button>
+    <button ngClass="btn-dialog" mat-button mat-dialog-close cdkFocusInitial>X</button>
   </mat-dialog-actions>
 <mat-dialog-content ngClass="mat-typography"> 
     <div class="example-container">
@@ -41,7 +41,7 @@
             </mat-form-field>
         
             <div ngClass="btn-container">
-                <button type="submit" class="btn btn-primary btn-ghost">Actualizar Producto</button>
+                <button [mat-dialog-close]="true" type="submit" class="btn btn-primary btn-ghost">Actualizar Producto</button>
             </div>
         </form>
     </div>

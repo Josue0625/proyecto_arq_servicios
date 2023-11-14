@@ -95,9 +95,27 @@ export class ModalUpdateComponent implements OnInit {
       this.form.get('categoryId')?.setValue(category_id);
       await this.serPro.updateProduct(this.elemento.id,this.form.value).subscribe((res : any)=>{
         this.update_product = res
-        console.log(res)
+        this.sucessAlert();
       })
       console.log(this.update_product)
+  }
+
+  sucessAlert() {
+    this.snackBar.open('Producto Actualizado', '👍', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['green-snackbar'],
+    });
+  }
+
+  errorAlert() {
+    this.snackBar.open('Producto No Actualizado', '👎', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['error-snackbar'],
+    });
   }
 
 }

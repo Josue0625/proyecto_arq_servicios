@@ -13,11 +13,12 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { ModalDeleteComponent } from '../../components/modal-delete/modal-delete.component';
 import { ModalUpdateComponent } from '../../components/modal-update/modal-update.component';
+import { FooterComponent } from '../../../public/footer/footer.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, GetAllProductsComponent, MatIconModule, HeaderComponent, AddProductComponent,  MatDialogModule],
+  imports: [CommonModule, GetAllProductsComponent, MatIconModule, HeaderComponent, AddProductComponent,  MatDialogModule, FooterComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
@@ -54,7 +55,9 @@ export class ProductComponent {
       } else if(index==2){
         const dialogRef = this.dialog.open(ModalUpdateComponent);
         dialogRef.afterClosed().subscribe(result => {
-            console.log(`Dialog result: ${result}`);
+          if (result) {
+            this.get_all_products();
+          }
         });
       } else if(index == 3){
         const dialogRef = this.dialog.open(ModalDeleteComponent);

@@ -26,6 +26,11 @@ export class FormComponent implements OnInit {
 
   themes = [
     {
+      background: "#231F20",
+      color: "#FFF",
+      primaryColor: "#BB4430"
+    },
+    {
       background: "#1A1A2E",
       color: "#FFFFFF",
       primaryColor: "#0F3460"
@@ -39,16 +44,11 @@ export class FormComponent implements OnInit {
       background: "#192A51",
       color: "#FFFFFF",
       primaryColor: "#967AA1"
-    },
-    {
-      background: "#231F20",
-      color: "#FFF",
-      primaryColor: "#BB4430"
     }
   ];
 
   ngOnInit() {
-    this.setTheme(this.themes[3]);
+    this.setTheme(this.themes[0]);
     this.displayThemeButtons();
   }
 
