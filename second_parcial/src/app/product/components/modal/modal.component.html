@@ -1,10 +1,15 @@
 
-<h2 mat-dialog-title>Detalle del producto</h2>
-<mat-dialog-content class="mat-typography">
+<mat-dialog-actions>
+    <h2>Detalle del producto</h2>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>X</button>
+  </mat-dialog-actions>
+<mat-dialog-content ngClass="mat-typography">
     <div ngClass="general">
-        <figure ngClass="card-image-wrapper">
-            <img [src]="elemento.images[0]" [alt]="elemento.title" width="300" height="300">
-        </figure>
+        <div ngClass="card-image-container">
+            <figure ngClass="card-image-wrapper">
+                <img [src]="elemento.images[0]" [alt]="elemento.title" width="300" height="300">
+            </figure>
+        </div>
         <div ngClass="container-details">
             <span ngClass="subtitulo">Nuevo | +10mil vendidos</span>
             <h1>{{elemento.title}}</h1>
@@ -16,14 +21,14 @@
             </div>
             <div class="price">
                 <span ngClass="price-before">$ 1.290</span><br><br>
-                <span ngClass="price-now">${{elemento.price}}</span>
-                <span ngClass="off">53% OFF</span>
+                <div ngClass="container-prices">
+                    <span ngClass="price-now">${{elemento.price}}</span>
+                    <span ngClass="off">53% OFF</span>
+                </div>
+                
             </div>
             <p>{{elemento.description}}</p>
         </div>
     </div>
     
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Aceptar</button>
-</mat-dialog-actions>
