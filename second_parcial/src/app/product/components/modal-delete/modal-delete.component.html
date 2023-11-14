@@ -1,0 +1,42 @@
+<mat-dialog-actions ngClass="closeWindows">
+    <h2>Eliminar producto</h2>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>X</button>
+  </mat-dialog-actions>
+<mat-dialog-content ngClass="mat-typography">
+    <div ngClass="general">
+        <div ngClass="card-image-container">
+            <figure ngClass="card-image-wrapper">
+                <img [src]="elemento.images[0]" [alt]="elemento.title" width="300" height="300">
+            </figure>
+        </div>
+        <div ngClass="container-details">
+            <span ngClass="subtitulo">Nuevo | +10mil vendidos</span>
+            <h1>{{elemento.title}}</h1>
+            <div>
+                <div ngClass="moreSold">MAS VENDIDO</div>
+                <div ngClass="numberOne">
+                    1° en {{elemento.category.name}}
+                </div>
+            </div>
+            <div class="price">
+                <span ngClass="price-before">$ 1.290</span><br><br>
+                <div ngClass="container-prices">
+                    <span ngClass="price-now">${{elemento.price}}</span>
+                    <span ngClass="off">53% OFF</span>
+                </div>
+                
+            </div>
+            <p>{{elemento.description}}</p>
+        </div>
+    </div>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <label>¿Est&aacute; seguro de eliminar el producto?</label>
+    <div ngClass="buttons">
+        <button mat-button mat-dialog-close ngClass="cancel">Cancelar</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial ngClass="aceppt" (click)="deleteProduct(elemento.id)">Aceptar</button>
+    </div>
+    
+  </mat-dialog-actions>

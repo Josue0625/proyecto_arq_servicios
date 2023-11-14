@@ -30,4 +30,8 @@ export class ProductServiceService {
     this.elementoSource.next(elemento);
   }
 
+  deleteProduct(id : string) {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+
 }
