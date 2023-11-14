@@ -6,32 +6,31 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { AuthService } from '../../../home/auth.service';
 import { HeaderComponent } from '../../../public/header/header.component';
+import { AddProductComponent } from '../../components/add-product/add-product.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, GetAllProductsComponent, MatIconModule, HeaderComponent],
+  imports: [CommonModule, GetAllProductsComponent, MatIconModule, HeaderComponent, AddProductComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
 
-  constructor(private ser: AuthService, private productService: ProductServiceService, private snackBar: MatSnackBar){}
+  constructor(private ser: AuthService, private productService: ProductServiceService, private route: ActivatedRoute){}
 
   ngOnInit(){
     this.get_all_products();
-    this.showAlertLogin();
   }
 
-  showAlertLogin(){
-    this.snackBar.open("Login Successful", "👍", {
-      duration: 3000,
-      horizontalPosition: "end",
-      verticalPosition: "top",
-      panelClass: ['green-snackbar']
-     });
+  esRutaProduct(): boolean {
+    return this.route.snapshot.routeConfig?.path === 'product';
   }
 
+  esRutaAddProduct(): boolean {
+    return this.route.snapshot.routeConfig?.path === 'add-product';
+  }
 
   elementos : any = [];
 

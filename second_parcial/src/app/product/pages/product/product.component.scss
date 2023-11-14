@@ -3,27 +3,12 @@ a {
     text-decoration: none;
 }
 
-.container-headboard, .container {
+.container {
     max-width: 96%;
     padding-inline: 1rem;
     margin-inline: auto;
     border-radius: 10px;
-    background-color: #231F20;
-}
-
-
-
-.card-headboard {
-    display: grid;
-    grid-template-columns: 0.1fr 1fr 0.5fr;
-    row-gap: 2.5rem;
-    color: #fff;
-    font-weight: bold;
-    padding-block: 1.625rem;
-    text-transform: capitalize;
-    font-size: clamp(0.8rem, 2vw, 1.5rem);
-    text-transform: uppercase;
-
+    background-color: #11131e;
 }
 
 .card {

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,15 @@ export class ProductServiceService {
   baseUrl = `https://api.escuelajs.co/api/v1/products`;
 
   getAll(){
-    return this.http.get(this.baseUrl)
+    return this.http.get(this.baseUrl);
   }
 
   getOne(id : string){
-    return this.http.get(`${this.baseUrl}/${id}`)
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  postProduct(){
-
+  postProduct(data: any): Observable<any>{
+    return this.http.post(`${this.baseUrl}/`,data);
   }
 
 }

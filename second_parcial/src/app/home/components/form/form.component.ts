@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service'; 
 import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +15,14 @@ import { Router } from '@angular/router';
 })
 export class FormComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder,private renderer: Renderer2, private el: ElementRef,  private ser : AuthService ) {}
+  constructor(
+    private router: Router, 
+    private fb: FormBuilder,
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private ser : AuthService,
+    private snackBar: MatSnackBar
+    ) {}
 
   themes = [
     {
@@ -95,16 +103,33 @@ export class FormComponent implements OnInit {
     await this.ser.getToken(this.form.value).subscribe(
       (res:any)=>{
       localStorage.setItem('access_token', res.access_token);
+      this.sucessAlertLogin();
       this.router.navigate(['/product']);
     }, 
     err => {
-      console.log(err)
+      this.errorAlertLogin();
     }
     )
     this.form.reset();
 
   } 
 
-  
+  sucessAlertLogin(){
+    this.snackBar.open("Login Successful", "👍", {
+      duration: 3000,
+      horizontalPosition: "end",
+      verticalPosition: "top",
+      panelClass: ['green-snackbar']
+     });
+  }
+
+  errorAlertLogin(){
+    this.snackBar.open("Login Failed", "👎", {
+      duration: 3000,
+      horizontalPosition: "end",
+      verticalPosition: "top",
+      panelClass: ['error-snackbar']
+     });
+  }
 
 }

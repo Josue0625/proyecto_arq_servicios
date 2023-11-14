@@ -6,5 +6,6 @@ import { ProductComponent } from './product/pages/product/product.component';
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo:'/home'},
   { path: 'home', component: AuthComponent },
-  {path: 'product', canActivate:[authGuard], component: ProductComponent}
+  {path: 'product', canActivate:[authGuard], component: ProductComponent},
+  {path: 'add-product', canActivate:[authGuard], component: ProductComponent}
 ];

@@ -1,19 +1,14 @@
 <app-header></app-header>
 
-<!-- <p>producto works!</p>
-<div ngClass="flex">
-    <div ngClass="rojo"><app-crear-producto></app-crear-producto></div>
-    <div ngClass="azul"><app-consultar-producto></app-consultar-producto></div>
-</div> -->
-
-<ng-container *ngIf="elementos.length > 0; else vacio"> </ng-container>
-    <div ngClass="container-headboard">
-        <div ngClass="card-headboard">
-            <div>Id</div>
-            <div>Información Producto</div>
-            <div>Acciones</div>
-        </div>
+<div ngClass="flex" *ngIf="esRutaAddProduct()">
+    <div ngClass="rojo">
+        <app-add-product></app-add-product>
     </div>
+    <!-- <div ngClass="azul"><app-consultar-producto></app-consultar-producto></div> -->
+</div>
+
+<div *ngIf="esRutaProduct()">
+    <ng-container *ngIf="elementos.length > 0; else vacio"> </ng-container>
     <app-get-all-products *ngFor="let p of elementos">
         <div ngClass="container" elements>
             <article ngClass="card">
@@ -56,7 +51,7 @@
             </ul>
         </div> -->
     </app-get-all-products>
-<ng-template #vacio>
-    <h1></h1>
-</ng-template>
-
+    <ng-template #vacio>
+        <h1></h1>
+    </ng-template>
+</div>

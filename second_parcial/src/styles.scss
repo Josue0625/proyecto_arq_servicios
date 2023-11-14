@@ -5,8 +5,14 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css");
 
 .mat-mdc-snack-bar-container {
+
   &.green-snackbar {
     --mdc-snackbar-container-color: green;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: #BB4430;
     --mdc-snackbar-supporting-text-color: #fff;
   }
 }
