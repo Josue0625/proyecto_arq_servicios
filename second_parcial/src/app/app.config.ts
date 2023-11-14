@@ -8,6 +8,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { provideToastr } from 'ngx-toastr';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(),
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptorsFromDi(),
       withFetch(),
   ),
+  
   {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

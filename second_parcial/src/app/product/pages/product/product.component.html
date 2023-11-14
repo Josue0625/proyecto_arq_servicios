@@ -1,5 +1,6 @@
-<app-header></app-header>
 
+
+<app-header></app-header>
 <!-- <p>producto works!</p>
 <div ngClass="flex">
     <div ngClass="rojo"><app-crear-producto></app-crear-producto></div>
@@ -27,7 +28,7 @@
                     <img [src]="p.images[0]" [alt]="p.title" width="300" height="300">
                 </figure>
                 <div ngClass="card-cta">
-                    <a ngClass="card-btn">
+                    <a ngClass="card-btn" (click)="searchById(p.id)">
                         <mat-icon>visibility</mat-icon>
                     </a>
                     <a ngClass="card-btn">

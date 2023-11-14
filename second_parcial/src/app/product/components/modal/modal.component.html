@@ -1,0 +1,29 @@
+
+<h2 mat-dialog-title>Detalle del producto</h2>
+<mat-dialog-content class="mat-typography">
+    <div ngClass="general">
+        <figure ngClass="card-image-wrapper">
+            <img [src]="elemento.images[0]" [alt]="elemento.title" width="300" height="300">
+        </figure>
+        <div ngClass="container-details">
+            <span ngClass="subtitulo">Nuevo | +10mil vendidos</span>
+            <h1>{{elemento.title}}</h1>
+            <div>
+                <div ngClass="moreSold">MAS VENDIDO</div>
+                <div ngClass="numberOne">
+                    1° en {{elemento.category.name}}
+                </div>
+            </div>
+            <div class="price">
+                <span ngClass="price-before">$ 1.290</span><br><br>
+                <span ngClass="price-now">${{elemento.price}}</span>
+                <span ngClass="off">53% OFF</span>
+            </div>
+            <p>{{elemento.description}}</p>
+        </div>
+    </div>
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Aceptar</button>
+</mat-dialog-actions>
