@@ -1,0 +1,238 @@
+.general {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 10px;
+}
+
+.container-details {
+	/* Font & Text */
+	font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	letter-spacing: normal;
+	line-height: 18.9px;
+	text-decoration: none solid rgb(0, 0, 0);
+	text-align: start;
+	text-indent: 0px;
+	text-transform: none;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px;
+    flex-direction: column;
+    gap: 1rem;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(0, 0, 0);
+
+	/* Box */
+	height: auto;
+	width: 352px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	border-left: 1px solid rgba(0, 0, 0, 0.1);
+	margin: 0px;
+	padding: 16px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+	/* Positioning */
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
+	float: none;
+	display: flex;
+	clear: none;
+	z-index: auto;
+
+	/* List */
+	list-style-image: none;
+	list-style-type: disc;
+	list-style-position: outside;
+
+	/* Table */
+	border-collapse: collapse;
+	border-spacing: 0px 0px;
+	caption-side: top;
+	empty-cells: show;
+	table-layout: auto;
+
+	/* Miscellaneous */
+	overflow: visible;
+	cursor: auto;
+	visibility: visible;
+
+	/* Effects */
+	transform: none;
+	transition: all 0s ease 0s;
+	outline: rgb(255, 0, 0) dashed 1px;
+	outline-offset: 0px;
+	box-sizing: border-box;
+	resize: none;
+	text-shadow: none;
+	text-overflow: clip;
+	word-wrap: normal;
+	box-shadow: none;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+
+    .subtitulo{
+        /* Font & Text */
+        font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 18.9px;
+        text-decoration: none solid rgba(0, 0, 0, 0.55);
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: pre-wrap;
+        word-spacing: 0px;
+    }
+
+    h1{
+        /* Font & Text */
+        font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 600;
+        letter-spacing: normal;
+        line-height: 25.96px;
+        text-decoration: none solid rgba(0, 0, 0, 0.9);
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;      
+    }
+    .price-before {
+        text-decoration: line-through;
+        font-size: 16px;
+    }
+    .numberOne{
+        margin-top: -20px;
+        color: rgb(52, 131, 250);
+        font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif;
+        font-size: 12px;
+        text-decoration: none solid rgb(52, 131, 250);
+        display: flex;
+        position: relative;
+        left: 104px;
+    }
+    .moreSold{
+        font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 600;
+        letter-spacing: normal;
+        line-height: 12px;
+        text-decoration: none solid rgb(255, 255, 255);
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;
+        background-attachment: scroll;
+        background-color: rgb(255, 119, 51);
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        color: rgb(255, 255, 255);
+        height: 18px;
+        width: 89.1562px;
+        border: 0px none rgb(255, 255, 255);
+        border-top: 0px none rgb(255, 255, 255);
+        border-right: 0px none rgb(255, 255, 255);
+        border-bottom: 0px none rgb(255, 255, 255);
+        border-left: 0px none rgb(255, 255, 255);
+        border-radius: 5%;
+        margin: 0px;
+        padding: 3px 4px;
+        max-height: none;
+        min-height: 0px;
+        max-width: none;
+        min-width: 0px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .price-now{
+        font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif;
+        font-size: 36px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 300;
+        letter-spacing: 1px;
+        line-height: 36px;
+        text-decoration: none solid rgba(0, 0, 0, 0.9);
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;
+        
+        /* Color & Background */
+        background-attachment: scroll;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        color: rgba(0, 0, 0, 0.9);
+    }
+    .off{
+        font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 24.3px;
+        text-decoration: none solid rgb(0, 166, 80);
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;
+        background-attachment: scroll;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        color: rgb(0, 166, 80);
+        display: flex;
+        position: relative;
+        left: 90px;
+        top: -30px;
+    }
+
+    p{
+        text-align: justify;
+        font-size: 14px;
+    }
+}

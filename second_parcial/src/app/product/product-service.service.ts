@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
+  private elementoSource = new BehaviorSubject<any>(null);
+  elemento$ = this.elementoSource.asObservable();
+  
   constructor(private http: HttpClient) { }
 
   baseUrl = `https://api.escuelajs.co/api/v1/products`;
@@ -21,6 +24,10 @@ export class ProductServiceService {
 
   postProduct(data: any): Observable<any>{
     return this.http.post(`${this.baseUrl}/`,data);
+  }
+
+  setElemento(elemento: any) {
+    this.elementoSource.next(elemento);
   }
 
 }

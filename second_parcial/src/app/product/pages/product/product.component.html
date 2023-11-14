@@ -1,4 +1,3 @@
-<app-header></app-header>
 
 <div ngClass="flex" *ngIf="esRutaAddProduct()">
     <div ngClass="rojo">
@@ -22,7 +21,7 @@
                     <img [src]="p.images[0]" [alt]="p.title" width="300" height="300">
                 </figure>
                 <div ngClass="card-cta">
-                    <a ngClass="card-btn">
+                    <a ngClass="card-btn" (click)="searchById(p.id)">
                         <mat-icon>visibility</mat-icon>
                     </a>
                     <a ngClass="card-btn">
