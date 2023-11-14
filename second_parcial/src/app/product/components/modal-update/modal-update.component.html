@@ -1,0 +1,48 @@
+<mat-dialog-actions>
+    <h2>Detalle del producto</h2>
+    <button ngClass="btn-dialog" mat-button [mat-dialog-close]="true" cdkFocusInitial>X</button>
+  </mat-dialog-actions>
+<mat-dialog-content ngClass="mat-typography"> 
+    <div class="example-container">
+        <form ngClass="formPrincipal" [formGroup]="form" (submit)="submit()">
+            <mat-form-field hintLabel="Max 50 characteres">
+                <mat-label>Titulo</mat-label>
+                <input matInput #input maxlength="50" placeholder="Zapatos x" formControlName="title">
+                <mat-hint align="end">{{input.value.length}}/50</mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field floatLabel="always">
+                <mat-label>Precio</mat-label>
+                <input matInput type="number" ngClass="example-right-align" placeholder="0" formControlName="price">
+                <span matTextPrefix>$&nbsp;</span>
+                <span matTextSuffix>.00</span>
+            </mat-form-field>
+            
+            <form [formGroup]="form2">
+                <mat-form-field ngClass="image-form2">
+                    <mat-label>Imagen</mat-label>
+                    <input matInput #input placeholder="https://ruta/img.jpg" formControlName="image">
+                </mat-form-field>
+            </form>
+        
+            <mat-form-field>
+                <mat-label>Categoria</mat-label>
+                <mat-select formControlName="categoryId">
+                    <mat-option *ngFor="let category of categories" [value]="category.id">
+                        {{ category.name }}
+                    </mat-option>
+                </mat-select>
+                <mat-hint align="end">Seleccione una categoria</mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Descripción</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+        
+            <div ngClass="btn-container">
+                <button type="submit" class="btn btn-primary btn-ghost">Actualizar Producto</button>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>

@@ -33,5 +33,9 @@ export class ProductServiceService {
   deleteProduct(id : string) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+  
+  updateProduct(id: any, updated: any){
+    return this.http.put(`${this.baseUrl}/${id}`, updated);
+  }
 
 }

@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { ModalDeleteComponent } from '../../components/modal-delete/modal-delete.component';
+import { ModalUpdateComponent } from '../../components/modal-update/modal-update.component';
 
 @Component({
   selector: 'app-product',
@@ -40,17 +41,22 @@ export class ProductComponent {
     return this.route.snapshot.routeConfig?.path === 'add-product';
   }
 
-  async searchById(id: any, index:any){
+  async searchById(id: any, index: any){
     await this.productService.getOne(id).subscribe((res : any)=>{
       this.elemento = res
       this.productService.setElemento(res);
       console.log(res)
-      if(index === 1){
+      if(index == 1){
         const dialogRef = this.dialog.open(ModalComponent);
         dialogRef.afterClosed().subscribe(result => {
-          console.log(`Dialog result: ${result}`);
+            console.log(`Dialog result: ${result}`);
         });
-      }else if(index === 3){
+      } else if(index==2){
+        const dialogRef = this.dialog.open(ModalUpdateComponent);
+        dialogRef.afterClosed().subscribe(result => {
+            console.log(`Dialog result: ${result}`);
+        });
+      } else if(index == 3){
         const dialogRef = this.dialog.open(ModalDeleteComponent);
         dialogRef.afterClosed().subscribe(result => {
           // Actualizar productos después de cerrar la modal
@@ -60,7 +66,6 @@ export class ProductComponent {
           }
         });
       }
-      
     })
     
   }
