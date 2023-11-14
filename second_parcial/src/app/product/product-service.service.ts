@@ -30,4 +30,8 @@ export class ProductServiceService {
     this.elementoSource.next(elemento);
   }
 
+  updateProduct(id: any, updated: any){
+    return this.http.put(`${this.baseUrl}/${id}`, updated);
+  }
+
 }
