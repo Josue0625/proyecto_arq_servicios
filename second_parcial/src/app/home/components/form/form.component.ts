@@ -102,7 +102,9 @@ export class FormComponent implements OnInit {
   async submit(){
     await this.ser.getToken(this.form.value).subscribe(
       (res:any)=>{
-      localStorage.setItem('access_token', res.access_token);
+      if(localStorage !== undefined){
+        localStorage.setItem('access_token', res.access_token);
+      }
       this.sucessAlertLogin();
       this.router.navigate(['/product']);
     }, 

@@ -1,5 +1,3 @@
-export interface AuthInterceptor {
-}
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,

@@ -19,7 +19,9 @@ export class AuthService {
     });
   }
   cerrarSesion(): void {
-    localStorage.removeItem("access_token");
+    if(localStorage !== undefined){
+      localStorage.removeItem("access_token");
+    }
     this.router.navigate(['/home']);
   }
 
