@@ -21,7 +21,7 @@ export class ModalDeleteComponent implements OnInit{
 
   ngOnInit() {
     this.serPro.elemento$.subscribe(elemento => {
-      this.elemento = elemento;
+      this.elemento = elemento.data;
       console.log(this.elemento);
     });
   }

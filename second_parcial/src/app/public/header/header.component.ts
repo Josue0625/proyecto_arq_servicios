@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit{
 
   nombreUsuario: string = ''; 
   rutaImage: string = '';
-  usuarios: any[] = []; // Arreglo para almacenar los usuarios
   isProductosActive: boolean = false;  
   isAgregarActive: boolean = false;  
   isSalirActive: boolean = false; 
@@ -32,19 +31,17 @@ export class HeaderComponent implements OnInit{
   }
 
   obtener() {
-    this.ser.getUsuario().subscribe(
-      (res: any) => {
-        console.log(res);
-        this.usuarios.push(res); // Agrega la respuesta al arreglo de usuarios
-        this.nombreUsuario = res.name; // Asigna el nombre del usuario para mostrar en el HTML
-        this.rutaImage = res.avatar;
-        console.log(this.nombreUsuario, this.rutaImage);
-      },
-      (err) => {
-        console.log("error");
-        console.log(err);
+    if(localStorage !== undefined){
+      const name = localStorage.getItem('user_name');
+      const avatar = localStorage.getItem('user_avatar');
+      if(name){
+        this.nombreUsuario = name;
       }
-    );
+      if(avatar){
+        this.rutaImage = avatar;
+      }
+      console.log(this.nombreUsuario, this.rutaImage);
+    }
   } 
 
   navigateTo(route: string): void {

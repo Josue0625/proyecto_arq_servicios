@@ -12,7 +12,7 @@ export class ProductServiceService {
   
   constructor(private http: HttpClient) { }
 
-  baseUrl = `https://api.escuelajs.co/api/v1/products`;
+  baseUrl = `http://localhost:3100/api/producto`;
 
   getAll(){
     return this.http.get(this.baseUrl);
@@ -34,8 +34,8 @@ export class ProductServiceService {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
   
-  updateProduct(id: any, updated: any){
-    return this.http.put(`${this.baseUrl}/${id}`, updated);
+  updateProduct(updated: any){
+    return this.http.put(`${this.baseUrl}`, updated);
   }
 
 }

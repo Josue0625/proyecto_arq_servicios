@@ -52,8 +52,9 @@ export class ModalUpdateComponent implements OnInit {
         title: ['', [Validators.required]],
         price: [0, [Validators.required]],
         description: ['', [Validators.required]],
-        categoryId: [0, [Validators.required]],
+        category: [0, [Validators.required]],
         images: this.fb.array([], [Validators.required]),
+        id: [0, [Validators.required]]
       });
       this.form2 = this.fb.group({
         image: ['', [Validators.required]],
@@ -68,19 +69,20 @@ export class ModalUpdateComponent implements OnInit {
 
   async get_all_categories_elements() {
     await this.categoriesService.getAll().subscribe((res: any) => {
-      this.categories = res;
+      this.categories = res.data;
       console.log(res);
     });
     await this.serPro.elemento$.subscribe(elemento => {
-      this.elemento = elemento;
+      this.elemento = elemento.data;
       this.form.patchValue({
-        title: elemento.title,
-        price: elemento.price,
-        description: elemento.description,
-        categoryId: elemento.category.id
+        title: elemento.data.title,
+        price: elemento.data.price,
+        description: elemento.data.description,
+        category: elemento.data.category,
+        id: elemento.data.id
       });
       this.form2.patchValue({
-        image: elemento.images[0]
+        image: elemento.data.images[0]
       });
       console.log(this.elemento);
     });
@@ -90,11 +92,11 @@ export class ModalUpdateComponent implements OnInit {
     const imagesArray = this.form.get('images') as FormArray;
       const image = this.form2.value.image
       imagesArray.push(this.fb.control(image, Validators.required));
-      const category = this.form.get('categoryId')?.value;
+      const category = this.form.get('category')?.value;
       const category_id = Number(category);
-      this.form.get('categoryId')?.setValue(category_id);
-      await this.serPro.updateProduct(this.elemento.id,this.form.value).subscribe((res : any)=>{
-        this.update_product = res
+      this.form.get('category')?.setValue(category_id);
+      await this.serPro.updateProduct(this.form.value).subscribe((res : any)=>{
+        this.update_product = res.data
         this.sucessAlert();
       })
       console.log(this.update_product)

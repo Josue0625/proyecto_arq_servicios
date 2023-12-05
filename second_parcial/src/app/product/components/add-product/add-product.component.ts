@@ -44,7 +44,7 @@ export class AddProductComponent implements OnInit {
     title: ['', [Validators.required]],
     price: [0, [Validators.required]],
     description: ['', [Validators.required]],
-    categoryId: [0, [Validators.required]],
+    category: [0, [Validators.required]],
     images: this.fb.array([], [Validators.required]),
   });
 
@@ -60,7 +60,7 @@ export class AddProductComponent implements OnInit {
 
   async get_all_categories() {
     await this.categoriesService.getAll().subscribe((res: any) => {
-      this.categories = res;
+      this.categories = res.data;
       console.log(res);
     });
   }
@@ -71,9 +71,6 @@ export class AddProductComponent implements OnInit {
       const image = this.form2.value.image
       console.log(image)
       imagesArray.push(this.fb.control(image, Validators.required));
-      const category = this.form.get('categoryId')?.value;
-      const category_id = Number(category);
-      this.form.get('categoryId')?.setValue(category_id);
       await this.ser.postProduct(this.form.value).subscribe(
         (res: any) => {
           this.sucessAlert();

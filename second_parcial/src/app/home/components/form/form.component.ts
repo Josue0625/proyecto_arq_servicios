@@ -103,7 +103,9 @@ export class FormComponent implements OnInit {
     await this.ser.getToken(this.form.value).subscribe(
       (res:any)=>{
       if(localStorage !== undefined){
-        localStorage.setItem('access_token', res.access_token);
+        localStorage.setItem('access_token', res.token);
+        localStorage.setItem('user_name', res.name);
+        localStorage.setItem('user_avatar', res.avatar);
       }
       this.sucessAlertLogin();
       this.router.navigate(['/product']);

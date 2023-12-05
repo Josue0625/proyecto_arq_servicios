@@ -75,10 +75,9 @@ export class ProductComponent {
 
   async get_all_products(){
     await this.productService.getAll().subscribe((res : any)=>{
-      this.elementos = res
-      console.log(res)
+      this.elementos = res.data,
+      console.log(this.elementos)
     })
-    console.log(this.elementos)
   }
 
 }

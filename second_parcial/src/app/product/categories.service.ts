@@ -8,7 +8,7 @@ export class CategoriesService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl = `https://api.escuelajs.co/api/v1/categories`;
+  baseUrl = `http://localhost:3100/api/category`;
 
   getAll(){
     return this.http.get(this.baseUrl)
