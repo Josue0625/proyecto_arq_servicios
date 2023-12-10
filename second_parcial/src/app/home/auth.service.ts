@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   // baseUrl = 'https://api.escuelajs.co/api/v1/auth';
-  baseUrl = 'http://localhost:3100';
+  baseUrl = 'http://107.22.41.29';
 
   getToken(form : any){
     return this.http.get(`${this.baseUrl}/auth?username=${form.email}&password=${form.password}`);

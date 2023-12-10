@@ -12,7 +12,7 @@ export class ProductServiceService {
   
   constructor(private http: HttpClient) { }
 
-  baseUrl = `http://localhost:3100/api/producto`;
+  baseUrl = `http://107.22.41.29/api/producto`;
 
   getAll(){
     return this.http.get(this.baseUrl);

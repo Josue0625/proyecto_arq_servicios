@@ -3,7 +3,8 @@
 nav {
   position: relative;
   z-index: 1;
-  height: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
@@ -16,27 +17,35 @@ nav ul {
   gap: 60px;
 }
 
-.perfilImage {
+.perfil {
+  margin-right: 50px;
   display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.perfilImage {
   cursor: pointer;
-  margin-right: auto;
-  margin-left: 1180px;
-  margin-top: -70px;
+  margin-top: 5px;
 }
 
 .username {
-  display: flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   cursor: pointer;
-  margin-right: auto;
-  margin-left: 1090px;
-  margin-top: -85px;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
   font-family: "Inter";
-  font-size: 1.2rem;
-  color: #b6b4b4;
+  font-weight: 600;
+  font-size: 1rem;
+  list-style: 22px;
+  color: #BB4430;
   transition: color 0.25s;
 }
 
-.username:hover {
+.perfil:hover .username {
   color: #fff;
 }
 
@@ -47,11 +56,11 @@ nav ul {
   border-radius: 50%;
 }
 
-.perfilImage img:hover {
+.perfil:hover .perfilImage img {
   transform: scale(1.2);
 }
 
-nav ul li button {
+nav ul li button{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

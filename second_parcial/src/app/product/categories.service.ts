@@ -8,7 +8,7 @@ export class CategoriesService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl = `http://localhost:3100/api/category`;
+  baseUrl = `http://107.22.41.29/api/category`;
 
   getAll(){
     return this.http.get(this.baseUrl)

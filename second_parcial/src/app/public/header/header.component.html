@@ -10,10 +10,12 @@
             <button (click)="cerrarSesion()">SALIR</button>
         </li>
     </ul>
-    <div ngClass="username">
-        <h1>{{nombreUsuario}}</h1>
-    </div>
-    <div ngClass="perfilImage">
-        <img src="{{rutaImage}}" alt="Logo">
+    <div class="perfil">
+        <div ngClass="username">
+            <h1>{{nombreUsuario}}</h1>
+        </div>
+        <div ngClass="perfilImage">
+            <img src="{{rutaImage}}" alt="Logo">
+        </div>
     </div>
 </nav>
